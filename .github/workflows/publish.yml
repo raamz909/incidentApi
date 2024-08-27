@@ -13,11 +13,9 @@ jobs:
           - name: Checkout code
             uses: action/checkout@v2
 
-            -name: Login to Docker Hub
-              run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{secrets.DOCKER_PASSWORD}}"
-
-            -name: Build Docker Image
+          - name: Login to Docker Hub
+            run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{secrets.DOCKER_PASSWORD}}"
+          - name: Build Docker Image
             run: docker build -t raamz909/incident-api:${{ github.sha }} .
-
-            -name: Push Docker Image
+          - name: Push Docker Image
             run: docker push raamz909/incident-api:${{ github.sha }}
