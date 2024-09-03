@@ -16,6 +16,11 @@ description: {
   lng: {
     type: Number,
     required: true
+  },
+  isEmailSent : {
+    type: Boolean,
+    required: false, //este se puede poner o no
+    default: false
   }
 });
 
